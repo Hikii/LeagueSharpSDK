@@ -18,6 +18,7 @@ namespace HTrackerSDK
         private static void OnLoad(object sender, EventArgs e)
         {
             Tracker.OnLoad();
+            WardTracker.OnLoad();
         }
     }
 }

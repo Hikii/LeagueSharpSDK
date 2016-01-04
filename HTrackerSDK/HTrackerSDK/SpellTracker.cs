@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using LeagueSharp;
 using LeagueSharp.SDK.Core;
-using SharpDX.Direct3D9;
 
 namespace HTrackerSDK
 {
@@ -28,14 +28,6 @@ namespace HTrackerSDK
             "summonerteleport", 
         };
 
-        public static Font HikiFont = new Font(Drawing.Direct3DDevice, new FontDescription
-        {
-            FaceName = "Tahoma",
-            Height = 15,
-            Weight = FontWeight.Bold,
-            OutputPrecision = FontPrecision.Default,
-            Quality = FontQuality.ClearTypeNatural,
-        });
         private static int _x, _y;
 
         private static int GetCooldownExpires(Obj_AI_Base hero, SpellSlot slot)
@@ -94,16 +86,16 @@ namespace HTrackerSDK
                 {
                     _x = (int)ally.HPBarPosition.X + 30 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
-                    HikiFont.DrawText(null, Spells[i].ToString(), _x + 36, _y - 25, SharpDX.Color.Gold);
+                    Drawing.DrawText(_x + 36, _y - 25, Color.Gold, Spells[i].ToString());
 
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Spells[i]) - Game.Time - 1);
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 36, _y - 10, SharpDX.Color.Gold);
+                        Drawing.DrawText(_x + 36, _y - 10, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 36, _y - 10, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 36, _y - 10, Color.White, "0");
                     }
                 }
                 for (var i = 0; i < Summoners.Length; i++)
@@ -111,14 +103,14 @@ namespace HTrackerSDK
                     _x = (int)ally.HPBarPosition.X + 80 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Summoners[i]) - Game.Time - 1);
-                    HikiFont.DrawText(null, "" + GetSName(ally, Summoners[i]), _x + 23, _y - 60, SharpDX.Color.White);
+                    Drawing.DrawText(_x + 23, _y - 60, Color.Gold, "" +GetSName(ally, Summoners[i]));
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 40, _y + -60, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 40, _y - 60, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 40, _y + -60, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 40, _y - 60, Color.White, "0");
                     }
                 }
             }
@@ -132,16 +124,15 @@ namespace HTrackerSDK
                 {
                     _x = (int)ally.HPBarPosition.X + 30 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
-                    HikiFont.DrawText(null, "" + Spells[i], _x + 10, _y - 15, SharpDX.Color.Gold);
-
+                    Drawing.DrawText(_x + 10, _y - 15, Color.Gold, ""+Spells[i]);
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Spells[i]) - Game.Time - 1);
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 10, _y, SharpDX.Color.Gold);
+                        Drawing.DrawText(_x + 10, _y, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 10, _y, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 10, _y, Color.White, "0");
                     }
                 }
                 for (var i = 0; i < Summoners.Length; i++)
@@ -149,14 +140,14 @@ namespace HTrackerSDK
                     _x = (int)ally.HPBarPosition.X + 80 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Summoners[i]) - Game.Time - 1);
-                    HikiFont.DrawText(null, "" + GetSName(ally, Summoners[i]), _x + 23, _y - 50, SharpDX.Color.Gold);
+                    Drawing.DrawText(_x + 23, _y - 50, Color.Gold, "" + GetSName(ally, Summoners[i]));
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 40, _y + -50, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 40, _y + -50, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 40, _y + -50, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 40, _y + -50, Color.Gold, "0");
                     }
                 }
             }
@@ -170,16 +161,16 @@ namespace HTrackerSDK
                 {
                     _x = (int)ally.HPBarPosition.X + 30 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
-                    HikiFont.DrawText(null, "" + Spells[i], _x + 10, _y - 15, SharpDX.Color.Gold);
+                    Drawing.DrawText(_x + 10, _y - 15, Color.Gold, ""+Spells[i]);
 
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Spells[i]) - Game.Time - 1);
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 10, _y, SharpDX.Color.Gold);
+                        Drawing.DrawText(_x + 10, _y, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 10, _y, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 10, _y, Color.White, "0");
                     }
                 }
                 for (var i = 0; i < Summoners.Length; i++)
@@ -187,14 +178,14 @@ namespace HTrackerSDK
                     _x = (int)ally.HPBarPosition.X + 80 * i;
                     _y = (int)ally.HPBarPosition.Y + 50;
                     var cooldown = Convert.ToInt32(GetCooldownExpires(ally, Summoners[i]) - Game.Time - 1);
-                    HikiFont.DrawText(null, "" + GetSName(ally, Summoners[i]), _x + 23, _y - 50, SharpDX.Color.Gold);
+                    Drawing.DrawText(_x + 23, _y - 50, Color.Gold, "" + GetSName(ally, Summoners[i]));
                     if (cooldown > 0)
                     {
-                        HikiFont.DrawText(null, "" + cooldown, _x + 30, _y + -50, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 30, _y + -50, Color.White, "" + cooldown);
                     }
                     else
                     {
-                        HikiFont.DrawText(null, "0", _x + 40, _y + -50, SharpDX.Color.White);
+                        Drawing.DrawText(_x + 40, _y + -50, Color.White, "0");
                     }
                 }
             }
