@@ -23,7 +23,6 @@ namespace HTrackerSDK
                 }
                 Menu.Attach();
             }
-            Game.PrintChat("<font color='#ff3232'>HTracker: </font> <font color='#d4d4d4'>If you like this assembly feel free to upvote on Assembly Database</font>");
             Drawing.OnDraw += OnDraw;
            
         }
