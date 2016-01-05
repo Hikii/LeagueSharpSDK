@@ -87,6 +87,16 @@ namespace HTrackerSDK
             wardDatabase.Add(
             new WardData
             {
+                Duration = int.MaxValue,
+                ObjectName = "BlueTrinket",
+                Range = 1100,
+                SpellName = "TrinketOrbLvl3",
+            });
+
+
+            wardDatabase.Add(
+            new WardData
+            {
                 Duration = 3 * 60 * 1000,
                 ObjectName = "SightWard",
                 Range = 1100,
@@ -275,7 +285,7 @@ namespace HTrackerSDK
 
         private static void Game_OnProcessSpell(Obj_AI_Base hero, GameObjectProcessSpellCastEventArgs args)
         {
-
+           
             if (!Tracker.Menu["ward.tracker"]["enemy.ward"])
             {
                 return;
@@ -305,8 +315,6 @@ namespace HTrackerSDK
                             StartPos = args.Start.ToVector2(),
                             EndPos = args.End.ToVector2()
                         };
-
-
                         Wards.Add(newWard);
                     });
                 }
@@ -436,34 +444,40 @@ namespace HTrackerSDK
             {
                 var wardPos = ward.WardObject != null ? ward.WardObject.Position : ward.Position;
 
-                Vector2 wardScreenPos;
-                string timeStr;
-                if (wardPos.IsOnScreen() && ward.EndTime > Variables.TickCount && ward.WardData.ObjectName != "VisionWard")
+                if (wardPos.IsOnScreen() && ward.EndTime > Variables.TickCount)
                 {
-                    wardScreenPos = Drawing.WorldToScreen(wardPos);
-                    timeStr = FormatTime((ward.EndTime - Variables.TickCount) / 1000f);
+                    var wardScreenPos = Drawing.WorldToScreen(wardPos);
+                    var timeStr = FormatTime((ward.EndTime - Variables.TickCount) / 1000f);
                     var tSize = StrSize;
 
                     if (timeStr != null)
                     {
-                        Drawing.DrawCircle(wardPos,100,Color.Gold);
-                        // ReSharper disable once PossibleLossOfFraction
-                        Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.White,"Ward");
-                        // ReSharper disable once PossibleLossOfFraction
-                        Drawing.DrawText(wardScreenPos.X - tSize.Width/2, wardScreenPos.Y + WardStrSize.Height,
-                            Color.Gold, "" + timeStr);
+                        if (ward.WardData.ObjectName == "VisionWard")
+                        {
+                            Drawing.DrawCircle(wardPos, 100, Color.DeepPink);
+                            // ReSharper disable once PossibleLossOfFraction
+                            Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.DeepPink, "Pink");
+                        }
+                        else if (ward.WardData.ObjectName == "BlueTrinket")
+                        {
+                            Drawing.DrawCircle(wardPos, 100, Color.DodgerBlue);
+                            // ReSharper disable once PossibleLossOfFraction
+                            Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.DodgerBlue, "Blue");
+                        }
+                        else
+                        {
+                            Drawing.DrawCircle(wardPos, 100, Color.Gold);
+                            // ReSharper disable once PossibleLossOfFraction
+                            Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.White, "Ward");
+                            // ReSharper disable once PossibleLossOfFraction
+                            Drawing.DrawText(wardScreenPos.X - tSize.Width / 2, wardScreenPos.Y + WardStrSize.Height,
+                                Color.Gold, "" + timeStr);
+                        }
+                        
                     }
                 }
-                if (!wardPos.IsOnScreen() || !(ward.EndTime > Variables.TickCount) ||
-                    ward.WardData.ObjectName != "VisionWard") continue;
-                wardScreenPos = Drawing.WorldToScreen(wardPos);
-                timeStr = FormatTime((ward.EndTime - Variables.TickCount) / 1000f);
+              
 
-
-                if (timeStr == null) continue;
-                Drawing.DrawCircle(wardPos, 100, Color.DeepPink);
-                // ReSharper disable once PossibleLossOfFraction
-                Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.DeepPink, "Pink Ward");
             }
         }
     }
