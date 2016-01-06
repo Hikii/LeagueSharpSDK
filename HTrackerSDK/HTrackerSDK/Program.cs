@@ -19,6 +19,8 @@ namespace HTrackerSDK
         {
             Tracker.OnLoad();
             WardTracker.OnLoad();
+            CloneTracker.OnLoad();
+            PathTracker.OnLoad();
         }
     }
 }

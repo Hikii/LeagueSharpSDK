@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Linq;
+using System.Xml.Schema;
 using LeagueSharp;
 using LeagueSharp.SDK.Core;
+using LeagueSharp.SDK.Core.Extensions.SharpDX;
+using LeagueSharp.SDK.Core.Math.Polygons;
 using LeagueSharp.SDK.Core.UI.IMenu;
 using LeagueSharp.SDK.Core.UI.IMenu.Values;
+using SharpDX;
 using SharpDX.Direct3D9;
+using Color = System.Drawing.Color;
+using Rectangle = LeagueSharp.SDK.Core.Math.Polygons.Rectangle;
 
 namespace HTrackerSDK
 {
@@ -26,7 +32,6 @@ namespace HTrackerSDK
             Drawing.OnDraw += OnDraw;
            
         }
-
         private static void OnDraw(EventArgs args)
         {
             if (Menu["spell.track"]["track.my.skill"])

@@ -455,23 +455,27 @@ namespace HTrackerSDK
                         if (ward.WardData.ObjectName == "VisionWard")
                         {
                             Drawing.DrawCircle(wardPos, 100, Color.DeepPink);
+                            Drawing.DrawCircle(Drawing.WorldToMinimap(wardPos).ToVector3(), 20, Color.DeepPink);
                             // ReSharper disable once PossibleLossOfFraction
                             Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.DeepPink, "Pink");
                         }
                         else if (ward.WardData.ObjectName == "BlueTrinket")
                         {
                             Drawing.DrawCircle(wardPos, 100, Color.DodgerBlue);
+                            Drawing.DrawCircle(Drawing.WorldToMinimap(wardPos).ToVector3(), 20, Color.DodgerBlue);
                             // ReSharper disable once PossibleLossOfFraction
                             Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.DodgerBlue, "Blue");
                         }
                         else
                         {
-                            Drawing.DrawCircle(wardPos, 100, Color.Gold);
+                            Drawing.DrawCircle(wardPos, 100, Color.LawnGreen);
+                            Drawing.DrawCircle(Drawing.WorldToMinimap(wardPos).ToVector3(), 20, Color.LawnGreen);
+
                             // ReSharper disable once PossibleLossOfFraction
                             Drawing.DrawText(wardScreenPos.X - WardStrSize.Width / 2, wardScreenPos.Y, Color.White, "Ward");
                             // ReSharper disable once PossibleLossOfFraction
                             Drawing.DrawText(wardScreenPos.X - tSize.Width / 2, wardScreenPos.Y + WardStrSize.Height,
-                                Color.Gold, "" + timeStr);
+                                Color.LawnGreen, "" + timeStr);
                         }
                         
                     }
