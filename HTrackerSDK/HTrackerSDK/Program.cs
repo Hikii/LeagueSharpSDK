@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LeagueSharp;
-using LeagueSharp.SDK.Core.Events;
+using LeagueSharp.SDK;
 using LeagueSharp.SDK.Core.UI.IMenu;
 
 namespace HTrackerSDK
@@ -13,7 +13,7 @@ namespace HTrackerSDK
     {
         static void Main(string[] args)
         {
-            Load.OnLoad += OnLoad;
+            Events.OnLoad += OnLoad;
         }
         private static void OnLoad(object sender, EventArgs e)
         {

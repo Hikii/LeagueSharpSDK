@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using LeagueSharp;
+using LeagueSharp.SDK;
 using LeagueSharp.SDK.Core;
-using LeagueSharp.SDK.Core.Extensions;
-using LeagueSharp.SDK.Core.Extensions.SharpDX;
 using LeagueSharp.SDK.Core.UI.IMenu;
 using LeagueSharp.SDK.Core.UI.IMenu.Values;
 using LeagueSharp.SDK.Core.Utils;
