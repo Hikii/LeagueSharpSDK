@@ -85,10 +85,10 @@ namespace hVayne.Extensions
                 Menu.Add(new MenuSeparator("genel.seperator1", "hVayne Modes"));
 
                 PushDistance = Menu.Add(new MenuSlider("condemn.push.distance", "Condemn Push Distance", 410, 350, 420));
-                CondemnMethod = Menu.Add(new MenuList<string>("condemn.style", "Condemn Method : ", new[] {"Shine", "Asuna", "360"}));
-                MethodQ = Menu.Add(new MenuList<string>("q.style", "(Q) Method : ", new[] { "Cursor Position", "Safe Position" }));
-                ComboMethod = Menu.Add(new MenuList<string>("combo.type", "Combo Method : ", new[] { "Normal", "Burst"}));
-                HarassMenu = Menu.Add(new MenuList<string>("harass.type", "Harass Method : ", new[] { "2W + Q", "2W + E" }));
+                CondemnMethod = Menu.Add(new MenuList<string>("condemn.style", "Condemn Mode : ", new[] {"Shine", "Asuna", "360"}));
+                MethodQ = Menu.Add(new MenuList<string>("q.style", "(Q) Mode : ", new[] { "Cursor Position", "Safe Position" }));
+                ComboMethod = Menu.Add(new MenuList<string>("combo.type", "Combo Mode : ", new[] { "Normal", "Burst" }));
+                HarassMenu = Menu.Add(new MenuList<string>("harass.type", "Harass Mode : ", new[] { "2W + Q", "2W + E" }));
                 Menu.Attach();
             }
         }
