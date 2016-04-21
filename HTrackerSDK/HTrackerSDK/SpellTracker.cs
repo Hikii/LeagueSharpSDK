@@ -130,6 +130,7 @@ namespace HTrackerSDK
                     if (cooldown > 0)
                     {
                         Drawing.DrawText(_x + 10, _y, Color.White, "" + cooldown);
+                        
                     }
                     else
                     {

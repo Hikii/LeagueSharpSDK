@@ -5,11 +5,12 @@ using System.Linq;
 using LeagueSharp;
 using LeagueSharp.SDK;
 using LeagueSharp.SDK.Core;
-using LeagueSharp.SDK.Core.UI.IMenu;
-using LeagueSharp.SDK.Core.UI.IMenu.Values;
-using LeagueSharp.SDK.Core.Utils;
+using LeagueSharp.SDK.UI;
+using LeagueSharp.SDK.Utils;
 using SharpDX;
 using Color = System.Drawing.Color;
+using Menu = LeagueSharp.SDK.UI.Menu;
+
 
 namespace HTrackerSDK
 {

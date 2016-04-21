@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Core;
-using LeagueSharp.SDK.Core.UI.IMenu;
-using LeagueSharp.SDK.Core.UI.IMenu.Values;
-using LeagueSharp.SDK.Core.Utils;
+using LeagueSharp.SDK.Enumerations;
+using LeagueSharp.SDK.UI;
+using LeagueSharp.SDK.Utils;
 using SharpDX;
+using Menu = LeagueSharp.SDK.UI.Menu;
 
 namespace HTrackerSDK
 {

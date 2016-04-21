@@ -4,8 +4,8 @@ using System.Linq;
 using LeagueSharp;
 using LeagueSharp.SDK;
 using LeagueSharp.SDK.Core;
-using LeagueSharp.SDK.Core.UI.IMenu;
-using LeagueSharp.SDK.Core.UI.IMenu.Values;
+using LeagueSharp.SDK.UI;
+
 
 namespace HTrackerSDK
 {
