@@ -49,7 +49,7 @@ namespace HTrackerSDK
             }
             if (Tracker.Menu["path.tracker"]["enemy.path"])
             {
-                foreach (var enemy in GameObjects.AllyHeroes.Where(x => ObjectManager.Player.Distance(x.Position) < 1000))
+                foreach (var enemy in GameObjects.EnemyHeroes.Where(x => ObjectManager.Player.Distance(x.Position) < 1000))
                 {
                     if (Tracker.Menu["path.tracker"]["eta"])
                     {
