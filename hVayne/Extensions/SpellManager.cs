@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using hVayne.Champions;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Core.UI.IMenu.Values;
 using SharpDX;
 
 namespace hVayne.Extensions

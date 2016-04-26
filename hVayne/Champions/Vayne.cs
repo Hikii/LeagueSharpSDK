@@ -4,6 +4,7 @@ using System.Linq;
 using LeagueSharp;
 using LeagueSharp.SDK;
 using hVayne.Extensions;
+using LeagueSharp.SDK.Enumerations;
 using Color = System.Drawing.Color;
 
 namespace hVayne.Champions
@@ -28,17 +29,7 @@ namespace hVayne.Champions
             Config.ExecuteMenu();
 
             Game.OnUpdate += OnUpdate;
-            Events.OnInterruptableTarget += Interrupter;
             Orbwalker.OnAction += OnAction;
-        }
-
-        private static void Interrupter(object sender, Events.InterruptableTargetEventArgs e)
-        {
-            if (e.Sender.IsEnemy && e.DangerLevel >= DangerLevel.High && e.Sender.IsValidTarget(Spells.E.Range)
-                && Spells.E.IsReady() && Config.Menu["misc.settings"]["interrupter.e"])
-            {
-                Spells.E.CastOnUnit(e.Sender);
-            }
         }
 
         private static void OnAction(object sender, OrbwalkingActionArgs e)

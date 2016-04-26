@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Core.UI.IMenu;
-using LeagueSharp.SDK.Core.UI.IMenu.Values;
+using LeagueSharp.SDK.UI;
+using Menu = LeagueSharp.SDK.UI.Menu;
 
 namespace hVayne.Extensions
 {
