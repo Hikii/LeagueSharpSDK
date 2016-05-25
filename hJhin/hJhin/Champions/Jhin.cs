@@ -7,7 +7,6 @@ using hJhin.Extensions;
 using hJhin.Modes;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Enumerations;
 
 namespace hJhin.Champions
 {
@@ -52,22 +51,31 @@ namespace hJhin.Champions
                 case OrbwalkingMode.Hybrid:
                     Harass.Execute();
                     break;
-
-                    case OrbwalkingMode.None:
-                    Ultimate.Execute();
-                    break;
             }
 
             if (ObjectManager.Player.IsActive(Spells.R))
             {
                 Orbwalker.SetAttackState(false);
                 Orbwalker.SetMovementState(false);
+                Orbwalker.Enabled = false;
             }
-            else
+            else if (!ObjectManager.Player.IsActive(Spells.R))
             {
                 Orbwalker.SetAttackState(true);
                 Orbwalker.SetMovementState(true);
+                Orbwalker.Enabled = true;
             }
+
+            if (Config.SemiManualUlt.Active && !ObjectManager.Player.IsActive(Spells.R))
+            {
+                Orbwalker.Move(Game.CursorPos);
+            }
+
+            if (Config.SemiManualUlt.Active && Spells.R.IsReady())
+            {
+                Ultimate.Execute();
+            }
+           
 
             if (Config.Menu["activator.settings"]["use.qss"] && (Items.HasItem((int)ItemId.Quicksilver_Sash) && Items.CanUseItem((int)ItemId.Quicksilver_Sash) ||
                 Items.CanUseItem(3139) && Items.HasItem(3137)))

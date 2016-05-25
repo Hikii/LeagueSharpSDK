@@ -22,12 +22,18 @@ namespace hJhin.Modes
 
         public static void ExecuteW()
         {
-            var minion = GameObjects.EnemyMinions.Where(x => x.IsValidTarget(Spells.W.Range)).ToList();
+            var minions =
+                ObjectManager.Get<Obj_AI_Base>()
+                    .Where(x => x.IsMinion && x.IsEnemy && x.IsValidTarget(Spells.W.Range))
+                    .ToList();
 
-            if (Spells.W.GetLineFarmLocation(minion).MinionsHit >= Config.Menu["laneclear.settings"]["lane.w.min.count"])
+            var minionhit = Spells.W.GetLineFarmLocation(minions).MinionsHit;
+            if (minionhit >= Config.Menu["laneclear.settings"]["lane.w.min.count"])
             {
-                Spells.W.Cast(Spells.W.GetLineFarmLocation(minion).Position);
+                Spells.W.Cast(Spells.W.GetLineFarmLocation(minions).Position);
             }
+
+            
         }
 
         public static void Execute()

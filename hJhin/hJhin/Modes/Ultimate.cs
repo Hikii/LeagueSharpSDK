@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using hJhin.Extensions;
 using LeagueSharp;
 using LeagueSharp.SDK;
@@ -19,16 +15,18 @@ namespace hJhin.Modes
                 {
                     if (Config.Menu["ultimate.settings"]["auto.shoot.bullets"])
                     {
+                        var enemies = GameObjects.EnemyHeroes.Where(
+                                                    x =>
+                                                        x.IsValidTarget(Spells.R.Range) &&
+                                                        Config.Menu["ultimate.settings"]["combo.r." + x.ChampionName]
+                                                        && Spells.R.GetPrediction(x).Hitchance >= Provider.HikiChance())
+                                                    .MinOrDefault(x => x.Health);
 
-                        var enemy = GameObjects.EnemyHeroes.Where(x => Config.Menu["ultimate.settings"]["r.combo." + x.ChampionName] && x.IsValidTarget(Spells.R.Range)).MinOrDefault(x => x.Health);
-                        if (enemy != null)
+                        var pred = Spells.R.GetPrediction(enemies);
+                        if (enemies != null && pred.Hitchance >= Provider.HikiChance())
                         {
-                            var pred = Spells.R.GetPrediction(enemy);
-                            if (pred.Hitchance >= Provider.HikiChance())
-                            {
-                                Spells.R.Cast(pred.CastPosition);
-                                return;
-                            }
+                            Spells.R.Cast(pred.CastPosition);
+                            return;
                         }
                     }
                 }
@@ -36,20 +34,22 @@ namespace hJhin.Modes
                 {
                     if (Spells.R.IsReady() && Config.SemiManualUlt.Active)
                     {
-                        var enemy = GameObjects.EnemyHeroes.Where(x => Config.Menu["ultimate.settings"]["r.combo." + x.ChampionName] && x.IsValidTarget(Spells.R.Range)).MinOrDefault(x => x.Health);
-                        if (enemy != null)
+                        var enemies = GameObjects.EnemyHeroes.Where(
+                                                    x =>
+                                                        x.IsValidTarget(Spells.R.Range) &&
+                                                        Config.Menu["ultimate.settings"]["combo.r." + x.ChampionName]
+                                                        && Spells.R.GetPrediction(x).Hitchance >= Provider.HikiChance())
+                                                    .MinOrDefault(x => x.Health);
+
+                        var pred = Spells.R.GetPrediction(enemies);
+                        if (enemies != null && pred.Hitchance >= Provider.HikiChance())
                         {
-                            var pred = Spells.R.GetPrediction(enemy);
-                            if (pred.Hitchance >= Provider.HikiChance())
-                            {
-                                Spells.R.Cast(pred.CastPosition);
-                                return;
-                            }
+                            Spells.R.Cast(pred.CastPosition);
+                            return;
                         }
                     }
                 }
             }
-            
         }
     }
 }

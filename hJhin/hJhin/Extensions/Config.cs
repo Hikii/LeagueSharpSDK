@@ -1,22 +1,21 @@
 ﻿using System.Windows.Forms;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Enumerations;
-using LeagueSharp.SDK.UI;
-using Menu = LeagueSharp.SDK.UI.Menu;
+using LeagueSharp.SDK.Core.UI.IMenu.Values;
+using Menu = LeagueSharp.SDK.Core.UI.IMenu;
 
 namespace hJhin.Extensions
 {
     class Config
     {
-        public static Menu Menu;
+        public static Menu.Menu Menu;
         public static MenuKeyBind SemiManualUlt;
         public static MenuList<string> HitChance;
 
         public static void ExecuteMenu()
         {
-            Menu = new Menu("hJhin", "hJhin", true);
+            Menu = new Menu.Menu("hJhin", "hJhin", true);
             {
-                var combomenu = Menu.Add(new Menu("combo.settings", "Combo Settings"));
+                var combomenu = Menu.Add(new Menu.Menu("combo.settings", "Combo Settings"));
                 {
                     combomenu.Add(new MenuSeparator("combo.q.sep", "(Q) Settings"));
                     combomenu.Add(new MenuBool("combo.q", "Use (Q)", true));
@@ -31,7 +30,7 @@ namespace hJhin.Extensions
                     combomenu.Add(new MenuBool("combo.e", "Use (E)", true));
                 }
 
-                var harassmenu = Menu.Add(new Menu("harass.settings", "Harass Settings"));
+                var harassmenu = Menu.Add(new Menu.Menu("harass.settings", "Harass Settings"));
                 {
                     harassmenu.Add(new MenuSeparator("harass.q.sep", "(Q) Settings"));
                     harassmenu.Add(new MenuBool("harass.q", "Use (Q)", true));
@@ -43,7 +42,7 @@ namespace hJhin.Extensions
                     harassmenu.Add(new MenuSlider("harass.mana", "Min. Mana", 50, 1, 99));
                 }
 
-                var lanemenu = Menu.Add(new Menu("laneclear.settings", "WaveClear Settings"));
+                var lanemenu = Menu.Add(new Menu.Menu("laneclear.settings", "WaveClear Settings"));
                 {
 
                     lanemenu.Add(new MenuSeparator("lane.q.sep", "(Q) Settings"));
@@ -51,14 +50,14 @@ namespace hJhin.Extensions
 
                     lanemenu.Add(new MenuSeparator("lane.w.sep", "(W) Settings"));
                     lanemenu.Add(new MenuBool("lane.w", "Use (W)", true));
-                    lanemenu.Add(new MenuSlider("lane.w.min.count", "Min. Mana", 4,1,5));
+                    lanemenu.Add(new MenuSlider("lane.w.min.count", "Min. Minion", 4,1,5));
 
                     lanemenu.Add(new MenuSeparator("lane.mana.manager", "Mana Settings"));
                     lanemenu.Add(new MenuSlider("lane.mana", "Min. Mana", 50, 1, 99));
                 }
 
 
-                var junglemenu = Menu.Add(new Menu("jungle.settings", "Jungle Settings"));
+                var junglemenu = Menu.Add(new Menu.Menu("jungle.settings", "Jungle Settings"));
                 {
                     junglemenu.Add(new MenuSeparator("jungle.q.sep", "(Q) Settings"));
                     junglemenu.Add(new MenuBool("jungle.q", "Use (Q)", true));
@@ -70,7 +69,7 @@ namespace hJhin.Extensions
                     junglemenu.Add(new MenuSlider("jungle.mana", "Min. Mana", 50, 1, 99));
                 }
 
-                var miscmenu = Menu.Add(new Menu("misc.settings", "Miscellaneous"));
+                var miscmenu = Menu.Add(new Menu.Menu("misc.settings", "Miscellaneous"));
                 {
                     miscmenu.Add(new MenuBool("auto.e.immobile", "Auto Cast (E) Immobile Target", true));
 
@@ -80,7 +79,7 @@ namespace hJhin.Extensions
 
                 }
 
-                var ultimate = Menu.Add(new Menu("ultimate.settings", "Ultimate Settings"));
+                var ultimate = Menu.Add(new Menu.Menu("ultimate.settings", "Ultimate Settings"));
                 {
                     ultimate.Add(new MenuSeparator("ultimate.white.sep", "Ultimate Whitelist"));
 
@@ -95,7 +94,7 @@ namespace hJhin.Extensions
                 }
 
 
-                var activator = Menu.Add(new Menu("activator.settings", "Activator Settings"));
+                var activator = Menu.Add(new Menu.Menu("activator.settings", "Activator Settings"));
                 {
                     activator.Add(new MenuSeparator("qss.seperator", "Quicksilver Sash Settings"));
                     activator.Add(new MenuBool("use.qss", "Use QSS", true));

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Enumerations;
 
 namespace hJhin.Extensions
 {
@@ -35,7 +34,7 @@ namespace hJhin.Extensions
         {
             Q = new Spell(SpellSlot.Q, 550);
             W = new Spell(SpellSlot.W, 2500);
-            E = new Spell(SpellSlot.E, 2000);
+            E = new Spell(SpellSlot.E, 750);
             R = new Spell(SpellSlot.R, 3500);
 
             W.SetSkillshot(0.75f, 40, float.MaxValue, false, SkillshotType.SkillshotLine);

@@ -18,7 +18,7 @@ namespace hJhin
 
         private static void Load(object sender, EventArgs e)
         {
-            if (ObjectManager.Player.ChampionName == "Vayne")
+            if (ObjectManager.Player.ChampionName == "Jhin")
             {
                 // ReSharper disable once ObjectCreationAsStatement
                 new Jhin();

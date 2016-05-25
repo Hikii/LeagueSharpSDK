@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using hJhin.Extensions;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Enumerations;
 
 namespace hJhin.Modes
 {
