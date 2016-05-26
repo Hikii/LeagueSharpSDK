@@ -11,6 +11,7 @@ namespace hVayne.Extensions
 {
     class Condemn : Spells
     {
+        //
         public static long _lastCheck;
         // ReSharper disable once CollectionNeverQueried.Local
         private static List<Vector2> _points = new List<Vector2>();
@@ -18,7 +19,7 @@ namespace hVayne.Extensions
         public static void ShineCondemn(Obj_AI_Hero target, int push)
         {
             var pushDistance = push;
-            var targetPosition = E.GetPrediction(target,).UnitPosition;
+            var targetPosition = E.GetPrediction(target).UnitPosition;
             var pushDirection = (targetPosition - ObjectManager.Player.ServerPosition).Normalized();
             float checkDistance = pushDistance / 40f;
             for (int i = 0; i < 40; i++)

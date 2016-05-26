@@ -32,20 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="clipper_library">
-      <HintPath>C:\LeagueSharp\System\clipper_library.dll</HintPath>
-    </Reference>
     <Reference Include="LeagueSharp">
-      <HintPath>C:\LeagueSharp\System\LeagueSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PlaySharp\System\LeagueSharp.dll</HintPath>
     </Reference>
-    <Reference Include="LeagueSharp.SDK">
-      <HintPath>C:\LeagueSharp\System\LeagueSharp.SDK.dll</HintPath>
+    <Reference Include="LeagueSharp.Data">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PlaySharp\System\LeagueSharp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="LeagueSharp.SDKEx">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PlaySharp\System\LeagueSharp.SDKEx.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
-      <HintPath>C:\LeagueSharp\System\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9">
-      <HintPath>C:\LeagueSharp\System\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PlaySharp\System\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
