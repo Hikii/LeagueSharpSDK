@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LeagueSharp;
 using LeagueSharp.SDK;
-using LeagueSharp.SDK.Core.Wrappers.Damages;
+using LeagueSharp.SDK.Enumerations;
 
 namespace hJhin.Extensions
 {

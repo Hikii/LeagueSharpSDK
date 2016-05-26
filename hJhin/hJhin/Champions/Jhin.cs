@@ -7,6 +7,7 @@ using hJhin.Extensions;
 using hJhin.Modes;
 using LeagueSharp;
 using LeagueSharp.SDK;
+using LeagueSharp.SDK.Enumerations;
 
 namespace hJhin.Champions
 {

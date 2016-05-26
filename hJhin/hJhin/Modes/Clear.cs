@@ -22,10 +22,7 @@ namespace hJhin.Modes
 
         public static void ExecuteW()
         {
-            var minions =
-                ObjectManager.Get<Obj_AI_Base>()
-                    .Where(x => x.IsMinion && x.IsEnemy && x.IsValidTarget(Spells.W.Range))
-                    .ToList();
+            var minions = GameObjects.EnemyMinions.Where(x => x.IsValidTarget(Spells.W.Range)).ToList();
 
             var minionhit = Spells.W.GetLineFarmLocation(minions).MinionsHit;
             if (minionhit >= Config.Menu["laneclear.settings"]["lane.w.min.count"])
