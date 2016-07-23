@@ -56,14 +56,14 @@ namespace hJhin.Champions
 
             if (ObjectManager.Player.IsActive(Spells.R))
             {
-                Orbwalker.SetAttackState(false);
-                Orbwalker.SetMovementState(false);
+                Orbwalker.AttackState = false;
+                Orbwalker.MovementState = false;
                 Orbwalker.Enabled = false;
             }
             else if (!ObjectManager.Player.IsActive(Spells.R))
             {
-                Orbwalker.SetAttackState(true);
-                Orbwalker.SetMovementState(true);
+                Orbwalker.AttackState = true;
+                Orbwalker.MovementState = true;
                 Orbwalker.Enabled = true;
             }
 
